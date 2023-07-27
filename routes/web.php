@@ -58,6 +58,7 @@ Route::controller(OrderController::class)->group(function() {
     Route::resource('/orders', OrderController::class);
 
 });
+
 Route::get('/test', function() {
     $products = Product::all();
     return view('frontend.shop', compact('products'));

@@ -90,7 +90,7 @@
                                     <form id="orders-form" action="{{route('orders.store')}}" method="post">
                                         @csrf
                                     <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Order now!</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -104,7 +104,7 @@
                                                 <label for="quantity_ordered" class="label">quantity</label>
                                                 <input type="number" name="quantity_ordered" id="quantity_ordered" class="form-control">
                                             </div>
-                                            <input type="hidden" name="product_id" id="product_id" value="{{$product->product_id}}">
+                                            <input type="hidden" name="product_id" id="product_id" value="{{$product->id}}">
                                             <input type="hidden" name="tracking_code" id="tracking_code" >
                                         </div>
                                         <div class="modal-footer">
@@ -169,6 +169,8 @@
 
                     console.log(token, url, productPrice, productId, customerName, quantityOrdered, totalPrice, trackingCode);
 
+                    const modalHeader = document.querySelector('modal-header')
+
 
 
                     $.ajax({
@@ -184,7 +186,7 @@
                         },
 
                         success: function(data) {
-                            
+                            alert('Thanks, order is sent successfully!' + data)
                         },
 
                         error: function() {

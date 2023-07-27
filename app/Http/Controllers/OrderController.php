@@ -22,14 +22,14 @@ class OrderController extends Controller
         ]);
 
         $newOrder = new Order;
+        $newOrder->product_id = $request->product_id;
         $newOrder->customer_name = $request->customer_name;
         $newOrder->tracking_code =  random_int(1000,9999);
-        $newOrder->product_id = $request->product_id;
         $newOrder->quantity_ordered = $request->quantity_ordered;
         $newOrder->total_price = $request->total_price;
 
         $newOrder->save();
-        
+
         return response()->json();
     }
 }
